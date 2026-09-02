@@ -1,0 +1,74 @@
+{
+  "analysis_fundamental": {
+    "market": "crypto",
+    "asset": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC"
+    },
+    "chain": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC"
+    },
+    "startDate": "2025-04-14T00:00:00Z",
+    "endDate": "2025-05-06T00:00:00Z",
+    "strategy": "minerBehaviorAnalysis",
+    "data": {
+      "hashRate": [
+        {
+          "timestamp": 1709251200000,
+          "hashRate": 450.5,
+          "avgDifficulty": 12500000000,
+          "avgSizeInBytes": 1250000
+        },
+        {
+          "timestamp": 1709337600000,
+          "hashRate": 455.2,
+          "avgDifficulty": 12600000000,
+          "avgSizeInBytes": 1260000
+        }
+      ],
+      "minersBalance": [
+        {
+          "timestamp": 1709251200000,
+          "balance": 2500000.5
+        },
+        {
+          "timestamp": 1709337600000,
+          "balance": 2550000.75
+        }
+      ],
+      "minersFlow": [
+        {
+          "timestamp": 1709251200000,
+          "inflowVolume": 1500000.25,
+          "outflowVolume": 1200000.50
+        },
+        {
+          "timestamp": 1709337600000,
+          "inflowVolume": 1550000.30,
+          "outflowVolume": 1250000.60
+        }
+      ],
+      "totalFess": [
+        {
+          "timestamp": 1744588800000,
+          "totalFees": 12000
+        },
+        {
+          "timestamp": 1745193600000,
+          "totalFees": 11000
+        },
+        {
+          "timestamp": 1745798400000,
+          "totalFees": 10000
+        },
+        {
+          "timestamp": 1746403200000,
+          "totalFees": 2000
+        }
+      ]
+    }
+  }
+} 

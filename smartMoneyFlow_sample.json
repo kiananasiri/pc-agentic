@@ -1,0 +1,104 @@
+{
+  "analysis_fundamental": {
+    "market": "crypto",
+    "asset": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC"
+    },
+    "chain": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC"
+    },
+    "startDate": "2024-03-01T00:00:00Z",
+    "endDate": "2024-03-02T00:00:00Z",
+    "strategy": "smartMoneyFlow",
+    "data": {
+      "averageBalance": [
+        {
+          "timestamp": 1709251200000,
+          "averageBalance": 2.5
+        },
+        {
+          "timestamp": 1709337600000,
+          "averageBalance": 2.6
+        }
+      ],
+      "bidAskSpread": [
+        {
+          "timestamp": 1709251200000,
+          "spreadUSD_Binance": 0.25,
+          "spreadUSD_Coinbase": 0.30
+        },
+        {
+          "timestamp": 1709337600000,
+          "spreadUSD_Binance": 0.26,
+          "spreadUSD_Coinbase": 0.31
+        }
+      ],
+      "bullsAndBears": [
+        {
+          "timestamp": 1709251200000,
+          "bullCount": 65000,
+          "bearCount": 35000
+        },
+        {
+          "timestamp": 1709337600000,
+          "bullCount": 66000,
+          "bearCount": 34000
+        }
+      ],
+      "exchangeFlow": [
+        {
+          "timestamp": 1709251200000,
+          "inflowTxCount": 25000,
+          "inflowVolume": 1500000.25,
+          "outflowTxCount": 22000,
+          "outflowVolume": 1200000.50,
+          "netflowVolume": 300000.75,
+          "totalFlowVolume": 2700000.75
+        },
+        {
+          "timestamp": 1709337600000,
+          "inflowTxCount": 25500,
+          "inflowVolume": 1550000.30,
+          "outflowTxCount": 22500,
+          "outflowVolume": 1250000.60,
+          "netflowVolume": 300000.70,
+          "totalFlowVolume": 2800000.90
+        }
+      ],
+      "largeHoldersNetflow": [
+        {
+          "timestamp": 1709251200000,
+          "netflow": 2500000.50
+        },
+        {
+          "timestamp": 1709337600000,
+          "netflow": 2600000.75
+        }
+      ],
+      "largeHoldersNetflowToExchangeNetflowRatio": [
+        {
+          "timestamp": 1709251200000,
+          "ratio": 8.33
+        },
+        {
+          "timestamp": 1709337600000,
+          "ratio": 8.67
+        }
+      ],
+      "largeTransactionsVolume": [
+        {
+          "timestamp": 1709251200000,
+          "totalVolume": 15000000.25
+        },
+        {
+          "timestamp": 1709337600000,
+          "totalVolume": 15500000.30
+        }
+      ]
+    }
+  }
+} 

@@ -1,0 +1,78 @@
+{
+  "analysis_fundamental": {
+    "market": "crypto",
+    "asset": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC"
+    },
+    "chain": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC"
+    },
+    "startDate": "2024-03-01T00:00:00Z",
+    "endDate": "2024-03-02T00:00:00Z",
+    "strategy": "whaleManipulationDetection",
+    "data": {
+      "addressesStat": [
+        {
+          "timestamp": 1709251200000,
+          "totalCount": 1500000,
+          "totalWithBalanceCount": 1200000,
+          "totalZeroBalanceCount": 300000
+        },
+        {
+          "timestamp": 1709337600000,
+          "totalCount": 1510000,
+          "totalWithBalanceCount": 1210000,
+          "totalZeroBalanceCount": 300000
+        }
+      ],
+      "bidAskSpread": [
+        {
+          "timestamp": 1709251200000,
+          "spreadUSD_Binance": 0.25,
+          "spreadUSD_Coinbase": 0.30
+        },
+        {
+          "timestamp": 1709337600000,
+          "spreadUSD_Binance": 0.26,
+          "spreadUSD_Coinbase": 0.31
+        }
+      ],
+      "bullsAndBears": [
+        {
+          "timestamp": 1709251200000,
+          "bullCount": 65000,
+          "bearCount": 35000
+        },
+        {
+          "timestamp": 1709337600000,
+          "bullCount": 66000,
+          "bearCount": 34000
+        }
+      ],
+      "largeHoldersNetflow": [
+        {
+          "timestamp": 1709251200000,
+          "netflow": 2500000.50
+        },
+        {
+          "timestamp": 1709337600000,
+          "netflow": 2600000.75
+        }
+      ],
+      "largeTransactionsVolume": [
+        {
+          "timestamp": 1709251200000,
+          "totalVolume": 15000000.25
+        },
+        {
+          "timestamp": 1709337600000,
+          "totalVolume": 15500000.30
+        }
+      ]
+    }
+  }
+} 

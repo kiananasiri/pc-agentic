@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import ChatInterface from '../components/ChatInterface.astro';
+---
+
+<Layout title="Agno Crypto AI Portal">
+  <Header />
+  <div class="app-layout">
+    <Sidebar />
+    <ChatInterface />
+  </div>
+</Layout>
+
+<style>
+  .app-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+</style>

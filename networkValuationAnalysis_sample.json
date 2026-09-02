@@ -1,0 +1,148 @@
+{
+  "analysis_fundamental": {
+    "market": "crypto",
+    "asset": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC"
+    },
+    "chain": {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC"
+    },
+    "startDate": "2024-03-01T00:00:00Z",
+    "endDate": "2024-03-02T00:00:00Z",
+    "strategy": "networkValuationAnalysis",
+    "data": {
+      "NVTRatio": [
+        {
+          "timestamp": 1709251200000,
+          "NVTRatio": 45.5
+        },
+        {
+          "timestamp": 1709337600000,
+          "NVTRatio": 46.2
+        }
+      ],
+      "MVRVRatio": [
+        {
+          "timestamp": 1709251200000,
+          "MVRVRatio": 2.5
+        },
+        {
+          "timestamp": 1709337600000,
+          "MVRVRatio": 2.6
+        }
+      ],
+      "breakEvenPrice_history": [
+        {
+          "timestamp": 1709251200000,
+          "lossAddressCount": 450000,
+          "profitAddressCount": 550000,
+          "breakEvenAddressCount": 50000
+        },
+        {
+          "timestamp": 1709337600000,
+          "lossAddressCount": 445000,
+          "profitAddressCount": 555000,
+          "breakEvenAddressCount": 50000
+        }
+      ],
+      "breakEvenPrice_segments": [
+        {
+          "startPrice": 25000,
+          "endPrice": 30000,
+          "avgPrice": 27500,
+          "addressCount": 200000,
+          "totalVolume": 5000000
+        },
+        {
+          "startPrice": 30000,
+          "endPrice": 35000,
+          "avgPrice": 32500,
+          "addressCount": 250000,
+          "totalVolume": 7500000
+        }
+      ],
+      "marketCap": [
+        {
+          "timestamp": 1709251200000,
+          "marketCap": 750000000000
+        },
+        {
+          "timestamp": 1709337600000,
+          "marketCap": 760000000000
+        }
+      ],
+      "addressesStat": [
+        {
+          "timestamp": 1709251200000,
+          "totalCount": 1500000,
+          "totalWithBalanceCount": 1200000,
+          "totalZeroBalanceCount": 300000
+        },
+        {
+          "timestamp": 1709337600000,
+          "totalCount": 1510000,
+          "totalWithBalanceCount": 1210000,
+          "totalZeroBalanceCount": 300000
+        }
+      ],
+      "largeTransactionCount": [
+        {
+          "timestamp": 1709251200000,
+          "totalCount": 2500
+        },
+        {
+          "timestamp": 1709337600000,
+          "totalCount": 2600
+        }
+      ],
+      "bidAskSpread": [
+        {
+          "timestamp": 1709251200000,
+          "spreadUSD_Binance": 0.25,
+          "spreadUSD_Coinbase": 0.30
+        },
+        {
+          "timestamp": 1709337600000,
+          "spreadUSD_Binance": 0.26,
+          "spreadUSD_Coinbase": 0.31
+        }
+      ],
+      "bullsAndBears": [
+        {
+          "timestamp": 1709251200000,
+          "bullCount": 65000,
+          "bearCount": 35000
+        },
+        {
+          "timestamp": 1709337600000,
+          "bullCount": 66000,
+          "bearCount": 34000
+        }
+      ],
+      "largeHoldersNetflow": [
+        {
+          "timestamp": 1709251200000,
+          "netflow": 2500000.50
+        },
+        {
+          "timestamp": 1709337600000,
+          "netflow": 2600000.75
+        }
+      ],
+      "largeTransactionsVolume": [
+        {
+          "timestamp": 1709251200000,
+          "totalVolume": 15000000.25
+        },
+        {
+          "timestamp": 1709337600000,
+          "totalVolume": 15500000.30
+        }
+      ]
+    }
+  }
+} 
