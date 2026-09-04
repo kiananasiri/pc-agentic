@@ -107,10 +107,122 @@
 
   .messages-container {
     flex: 1;
-    padding: 1.5rem 2rem;
+    padding: 2rem 3rem;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+    direction: ltr !important;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  /* Base Message Row */
+  .message-row {
+    width: 100% !important;
+    display: flex !important;
+    direction: ltr !important;
+    animation: fadeInMsg 0.2s ease-out;
+  }
+
+  @keyframes fadeInMsg {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* User Message: ALWAYS FORCED TO FAR RIGHT, regardless of language */
+  .message-row.user {
+    direction: ltr !important;
+    justify-content: flex-end !important;
+    align-self: flex-end !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    text-align: right !important;
+  }
+
+  .user-bubble {
+    background: #262626;
+    color: #f3f3f3;
+    padding: 0.65rem 1.25rem;
+    border-radius: 22px;
+    max-width: 70%;
+    width: fit-content !important;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    text-align: right !important;
+    direction: ltr !important;
+  }
+
+  /* Assistant Message: ALWAYS FORCED TO FAR LEFT, regardless of language */
+  .message-row.assistant {
+    direction: ltr !important;
+    justify-content: flex-start !important;
+    align-self: flex-start !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    text-align: left !important;
+  }
+
+  .assistant-content {
+    max-width: 82%;
+    width: fit-content !important;
+    color: #ececec;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    direction: ltr !important;
+    text-align: left !important;
+  }
+
+  .assistant-content .message-body {
+    color: #ececec;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    text-align: left !important;
+    direction: ltr !important;
+  }
+
+  /* Action Buttons Bar under Assistant Response - ALWAYS LEFT ALIGNED */
+  .assistant-actions {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.65rem;
+    opacity: 0.85;
+    direction: ltr !important;
+    text-align: left !important;
+  }
+
+  .action-btn {
+    background: transparent;
+    border: none;
+    color: #9b9b9b;
+    padding: 0.35rem 0.45rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+  }
+
+  .action-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .price-tag {
+    font-size: 0.7rem;
+    color: #71717a;
+    font-family: 'Fira Code', monospace;
+    margin-left: 0.5rem;
   }
 
   .welcome-card {
@@ -340,16 +452,26 @@
     padding: 0.55rem 0.85rem;
     margin-bottom: 0.85rem;
     font-size: 0.82rem;
+    direction: ltr !important;
+    text-align: left !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    width: fit-content !important;
+    max-width: 100% !important;
   }
 
   .thinking-summary {
     cursor: pointer;
     font-weight: 600;
     color: #c084fc;
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
     gap: 0.4rem;
     user-select: none;
+    direction: ltr !important;
+    text-align: left !important;
   }
 
   .thinking-body {
@@ -359,63 +481,263 @@
     color: #e2e8f0;
     font-size: 0.78rem;
     line-height: 1.65;
+    direction: ltr !important;
+    text-align: left !important;
+  }
+
+  /* Markdown Elements Styling */
+  .message-body strong, .message-body b, .thinking-body strong, .thinking-body b {
+    font-weight: 700;
+    color: #38bdf8;
+  }
+
+  .message-body h1, .message-body h2, .message-body h3, .message-body h4 {
+    color: #f8fafc;
+    font-weight: 700;
+    margin-top: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .message-body h3 {
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.3rem;
+    color: #06b6d4;
+  }
+
+  .message-body h4 {
+    font-size: 0.98rem;
+    color: #38bdf8;
+  }
+
+  .message-body ul, .message-body ol {
+    margin-right: 1.25rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+    padding-right: 0.5rem;
+  }
+
+  .message-body li {
+    margin-bottom: 0.35rem;
+  }
+
+  .message-body code {
+    background: #0f172a;
+    color: #38bdf8;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace;
+    font-size: 0.88em;
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: isolate;
+    display: inline-block;
+  }
+
+  .message-body pre {
+    background: #090d16;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    direction: ltr !important;
+    text-align: left !important;
+    margin: 0.85rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    unicode-bidi: isolate;
+  }
+
+  .message-body pre code {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    color: #38bdf8;
+    font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.65;
+    white-space: pre;
+    display: block;
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: isolate;
+  }
+
+  .message-body p {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Table Styling for Markdown Tables */
+  .message-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.85rem 0;
+    font-size: 0.85rem;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+    direction: rtl;
+  }
+
+  .message-body th, .message-body td {
+    padding: 0.6rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: right;
+  }
+
+  .message-body th {
+    background: rgba(30, 41, 59, 0.95);
+    color: #38bdf8;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(6, 182, 212, 0.4);
+  }
+
+  .message-body tr:nth-child(even) {
+    background: rgba(30, 41, 59, 0.35);
+  }
+
+  .message-body tr:hover {
+    background: rgba(6, 182, 212, 0.1);
   }
 </style>
 
 <script>
+  import { marked } from 'marked';
+
+  marked.setOptions({
+    breaks: true,
+    gfm: true
+  });
+
+  function ensureCodeFences(rawText) {
+    if (!rawText) return '';
+    const parts = rawText.split(/(```[\s\S]*?```)/g);
+
+    const processed = parts.map((part) => {
+      if (part.startsWith('```')) return part;
+      const lines = part.split('\n');
+      const resultLines = [];
+      let currentBuffer = [];
+
+      const isCodeLine = (str) => {
+        const trimmed = str.trim();
+        if (!trimmed) return currentBuffer.length > 0;
+
+        if (trimmed.startsWith('#')) return true;
+        if (/^(:def|:class|\(\)\w+|\}\w+|:\w+)/.test(trimmed)) return true;
+        if (/^(import|from|def|class|return|print|if|elif|else|try|except|finally|while|for|with|pass|raise|assert)\b/.test(trimmed)) return true;
+        if (/^[\w\s\['"\]\._\(\)]+\s*=\s*/.test(trimmed)) return true;
+        if (/(df\[|\.rolling\(|\.ewm\(|\.mean\(|\.diff\(|\.shift\(|\.where\(|pd\.|np\.|plt\.|calculate_|rsi|macd)\b/.test(trimmed)) return true;
+        if (/^[\(\)\{\}\]'\"]+$/.test(trimmed)) return true;
+
+        return false;
+      };
+
+      const flushBuffer = () => {
+        if (currentBuffer.length > 0) {
+          while (currentBuffer.length > 0 && !currentBuffer[currentBuffer.length - 1].trim()) {
+            currentBuffer.pop();
+          }
+
+          const hasActualCode = currentBuffer.some(l => {
+            const t = l.trim();
+            return t && !t.startsWith('#');
+          });
+
+          if (hasActualCode && currentBuffer.length >= 1) {
+            const cleanedCode = currentBuffer.join('\n')
+              .replace(/^:def\s+/gm, 'def ')
+              .replace(/^:class\s+/gm, 'class ')
+              .replace(/^\(\)gain\s*=/gm, 'gain =')
+              .replace(/^\(\)loss\s*=/gm, 'loss =')
+              .replace(/^\(\)delta\s*=/gm, 'delta =')
+              .replace(/^\(\)data\[/gm, 'data[')
+              .replace(/^\}data\s*=/gm, 'data =')
+              .replace(/^\(\{$/gm, '})');
+
+            resultLines.push('\n```python\n' + cleanedCode + '\n```\n');
+          } else {
+            resultLines.push(currentBuffer.join('\n'));
+          }
+          currentBuffer = [];
+        }
+      };
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (isCodeLine(line)) {
+          currentBuffer.push(line);
+        } else {
+          flushBuffer();
+          resultLines.push(line);
+        }
+      }
+      flushBuffer();
+      return resultLines.join('\n');
+    });
+
+    return processed.join('');
+  }
+
+  function renderMarkdown(rawText) {
+    if (!rawText) return '';
+    try {
+      const formattedText = ensureCodeFences(rawText);
+      return marked.parse(formattedText);
+    } catch (_err) {
+      return rawText.replace(/\n/g, '<br/>');
+    }
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>"']/g, function(m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+    });
+  }
+
+  function generateTitleFromText(text) {
+    let cleaned = (text || '').trim().replace(/\n/g, ' ');
+    if (cleaned.length > 32) {
+      cleaned = cleaned.substring(0, 32) + '...';
+    }
+    return cleaned || 'گفتگوی تحلیلی';
+  }
+
+  // Session Storage Constants
+  const SESSIONS_KEY = 'crypto_ai_sessions';
+  const ACTIVE_KEY = 'crypto_ai_active_session_id';
+
+  let sessions = [];
+  let activeSessionId = null;
   let currentPayload = null;
   let currentCode = false;
 
-  const taSample = {
-    pair: "BTCUSDT",
-    market: "crypto:spot",
-    charts: [{
-      startDate: "2025-05-01T05:40:53.254Z",
-      endDate: "2025-05-03T07:40:53.254Z",
-      resolution: "1m",
-      ohlcv: [
-        { low: 102887.9, high: 102902.7, open: 102902.6, close: 102898.4, volume: 18.642, timestamp: 1746841800000 },
-        { low: 102866, high: 102901.6, open: 102898.4, close: 102899.9, volume: 82.579, timestamp: 1746841860000 },
-        { low: 102900, high: 102915.5, open: 102900, close: 102915.4, volume: 31.62, timestamp: 1746841920000 }
-      ],
-      indicators: [
-        { symbol: "aroon", fullName: "Aroon Indicator", outputs: { aroon_up: [[1746841920000, 85.7]], aroon_down: [[1746841920000, 14.2]] } },
-        { symbol: "cci", fullName: "Commodity Channel Index", outputs: { cci: [[1746841920000, -78.5]] } }
-      ]
-    }]
-  };
-
-  const smartMoneySample = {
-    market: "crypto",
-    asset: { id: 1, name: "Bitcoin", symbol: "BTC" },
-    chain: { id: 1, name: "Bitcoin", symbol: "BTC" },
-    startDate: "2024-03-01T00:00:00Z",
-    endDate: "2024-03-02T00:00:00Z",
-    strategy: "Smart Money Flow",
-    data: {
-      exchangeFlow: [
-        { timestamp: 1709251200000, inflowVolume: 1500000, outflowVolume: 1200000, netflowVolume: 300000 },
-        { timestamp: 1709337600000, inflowVolume: 1550000, outflowVolume: 1250000, netflowVolume: 300000 }
-      ],
-      largeHoldersNetflow: [
-        { timestamp: 1709251200000, netflow: 2500000.5 },
-        { timestamp: 1709337600000, netflow: 2600000.75 }
-      ]
+  function loadSessionsFromStorage() {
+    try {
+      const raw = localStorage.getItem(SESSIONS_KEY);
+      sessions = raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      sessions = [];
     }
-  };
+  }
 
-  const minerBehaviorSample = {
-    market: "crypto",
-    asset: { id: 1, name: "Bitcoin", symbol: "BTC" },
-    chain: { id: 1, name: "Bitcoin", symbol: "BTC" },
-    strategy: "Miner Behavior",
-    data: {
-      minerReserve: [
-        { timestamp: 1709251200000, reserve: 1800000 },
-        { timestamp: 1709337600000, reserve: 1805000 }
-      ]
+  function saveSessionsToStorage() {
+    try {
+      localStorage.setItem(SESSIONS_KEY, JSON.stringify(sessions));
+      if (activeSessionId) {
+        localStorage.setItem(ACTIVE_KEY, activeSessionId);
+      } else {
+        localStorage.removeItem(ACTIVE_KEY);
+      }
+    } catch (e) {
+      console.error('Failed to save sessions to localStorage', e);
     }
-  };
+  }
+
+  function getActiveSession() {
+    return sessions.find(s => s.id === activeSessionId) || null;
+  }
 
   document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chatForm');
@@ -429,19 +751,251 @@
     const payloadDot = document.getElementById('payloadDot');
     const payloadStatusText = document.getElementById('payloadStatusText');
 
+    const btnNewChat = document.getElementById('btnNewChat');
+    const btnClearAllHistory = document.getElementById('btnClearAllHistory');
+    const historyListEl = document.getElementById('chatHistoryList');
+
+    // UI Rendering Functions
+    function appendMessageToDOM(role, text, price, thinking) {
+      if (!messagesContainer) return;
+      let extractedThinking = thinking || '';
+      let mainText = text || '';
+
+      // Separate thinking process block if embedded inside text response
+      if (!extractedThinking && (mainText.includes('روند تفکر ایجنت') || mainText.includes('Thinking Process'))) {
+        const thinkingRegex = /(?:▼\s*)?🧠?\s*(?:روند تفکر ایجنت|Thinking Process)[\s\S]*?(?=(###|####|\n\n[^\d\.\s\-\*]|$))/i;
+        const thinkingMatch = mainText.match(thinkingRegex);
+        if (thinkingMatch) {
+          extractedThinking = thinkingMatch[0].trim();
+          mainText = mainText.replace(thinkingMatch[0], '').trim();
+        }
+      }
+
+      const isPersian = /[\u0600-\u06FF]/.test(mainText || text);
+      const row = document.createElement('div');
+      row.className = `message-row ${role}`;
+
+      let thinkingHtml = '';
+      if (extractedThinking) {
+        thinkingHtml = `
+          <details class="thinking-details">
+            <summary class="thinking-summary">
+              <span class="thinking-icon">🧠</span>
+              <span class="thinking-title">روند تفکر ایجنت (Thinking Process)</span>
+            </summary>
+            <div class="thinking-body">${renderMarkdown(extractedThinking)}</div>
+          </details>
+        `;
+      }
+
+      const parsedBody = renderMarkdown(mainText);
+
+      if (role === 'user') {
+        row.innerHTML = `
+          <div class="user-bubble ${isPersian ? 'rtl-text' : 'ltr-text'}">
+            ${parsedBody}
+          </div>
+        `;
+      } else {
+        row.innerHTML = `
+          <div class="assistant-content ${isPersian ? 'rtl-text' : 'ltr-text'}">
+            ${thinkingHtml}
+            <div class="message-body">${parsedBody}</div>
+            <div class="assistant-actions">
+              <button class="action-btn btn-copy" title="کپی متن">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+              <button class="action-btn" title="پسندیدم">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+              </button>
+              <button class="action-btn" title="نپسندیدم">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"></path></svg>
+              </button>
+              ${price ? `<span class="price-tag">$${price.toFixed(6)}</span>` : ''}
+            </div>
+          </div>
+        `;
+
+        const btnCopy = row.querySelector('.btn-copy');
+        if (btnCopy) {
+          btnCopy.addEventListener('click', () => {
+            navigator.clipboard.writeText(mainText);
+            btnCopy.style.color = '#38bdf8';
+            setTimeout(() => { btnCopy.style.color = '#9b9b9b'; }, 1500);
+          });
+        }
+      }
+
+      messagesContainer.appendChild(row);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function appendLoading() {
+      if (!messagesContainer) return null;
+      const row = document.createElement('div');
+      row.className = 'message-row assistant';
+      row.innerHTML = `
+        <div class="assistant-content">
+          <div class="message-body" style="color: #999;">در حال تفکر و پردازش ایجنت...</div>
+        </div>
+      `;
+      messagesContainer.appendChild(row);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      return row;
+    }
+
+    function renderCurrentSessionMessages() {
+      if (!messagesContainer) return;
+
+      // Remove existing message rows (preserve welcomeCard element inside container)
+      const existingRows = messagesContainer.querySelectorAll('.message-row');
+      existingRows.forEach(row => row.remove());
+
+      const activeSession = getActiveSession();
+      if (!activeSession || !activeSession.messages || activeSession.messages.length === 0) {
+        if (welcomeCard) welcomeCard.style.display = 'flex';
+      } else {
+        if (welcomeCard) welcomeCard.style.display = 'none';
+        activeSession.messages.forEach(msg => {
+          appendMessageToDOM(msg.role, msg.text, msg.price, msg.thinking);
+        });
+      }
+    }
+
+    function renderHistoryList() {
+      const historyEl = document.getElementById('chatHistoryList');
+      if (!historyEl) return;
+
+      if (sessions.length === 0) {
+        historyEl.innerHTML = '<div class="empty-history">هنوز گفتگویی ذخیره نشده است</div>';
+        return;
+      }
+
+      historyEl.innerHTML = '';
+      sessions.forEach(session => {
+        const item = document.createElement('div');
+        item.className = `history-item ${session.id === activeSessionId ? 'active' : ''}`;
+        item.setAttribute('data-session-id', session.id);
+        
+        const dateObj = new Date(session.updatedAt || session.createdAt);
+        const formattedTime = dateObj.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' });
+
+        item.innerHTML = `
+          <div class="history-item-content">
+            <span class="history-item-title" title="${escapeHtml(session.title)}">${escapeHtml(session.title)}</span>
+            <span class="history-item-date">${formattedTime}</span>
+          </div>
+          <button class="btn-delete-history" title="حذف گفتگو" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+          </button>
+        `;
+
+        item.addEventListener('click', (e) => {
+          if (e.target.closest('.btn-delete-history')) return;
+          switchToSession(session.id);
+        });
+
+        const deleteBtn = item.querySelector('.btn-delete-history');
+        if (deleteBtn) {
+          deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            deleteSession(session.id);
+          });
+        }
+
+        historyEl.appendChild(item);
+      });
+    }
+
+    function createNewSession(initialTitle = 'گفتگوی جدید') {
+      const newSession = {
+        id: 'session_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
+        title: initialTitle,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        messages: []
+      };
+      sessions.unshift(newSession);
+      activeSessionId = newSession.id;
+      saveSessionsToStorage();
+      renderHistoryList();
+      renderCurrentSessionMessages();
+      return newSession;
+    }
+
+    function switchToSession(id) {
+      activeSessionId = id;
+      saveSessionsToStorage();
+      renderHistoryList();
+      renderCurrentSessionMessages();
+    }
+
+    function deleteSession(id) {
+      sessions = sessions.filter(s => s.id !== id);
+      if (activeSessionId === id) {
+        activeSessionId = sessions.length > 0 ? sessions[0].id : null;
+      }
+      saveSessionsToStorage();
+      renderHistoryList();
+      renderCurrentSessionMessages();
+    }
+
+    function clearAllSessions() {
+      if (sessions.length === 0) return;
+      if (!confirm('آیا از حذف تمام گفتگوهای ذخیره شده اطمینان دارید؟')) return;
+      sessions = [];
+      activeSessionId = null;
+      saveSessionsToStorage();
+      renderHistoryList();
+      renderCurrentSessionMessages();
+    }
+
+    // Load & initialize state inside DOMContentLoaded
+    loadSessionsFromStorage();
+    activeSessionId = localStorage.getItem(ACTIVE_KEY);
+
+    if (sessions.length > 0) {
+      if (!activeSessionId || !sessions.some(s => s.id === activeSessionId)) {
+        activeSessionId = sessions[0].id;
+      }
+    } else {
+      createNewSession('گفتگوی جدید');
+    }
+
+    renderHistoryList();
+    renderCurrentSessionMessages();
+
+    // Attach Event Listeners
+    btnNewChat?.addEventListener('click', () => {
+      createNewSession('گفتگوی جدید');
+      if (userInput) userInput.value = '';
+      currentPayload = null;
+      if (payloadBanner) payloadBanner.style.display = 'none';
+      if (payloadDot) payloadDot.className = 'status-dot-off';
+      if (payloadStatusText) payloadStatusText.textContent = 'بدون دیتاسِت (حالت عمومی)';
+    });
+
+    btnClearAllHistory?.addEventListener('click', () => {
+      clearAllSessions();
+    });
+
     document.querySelectorAll('.preset-card').forEach(btn => {
       btn.addEventListener('click', () => {
         const preset = btn.getAttribute('data-preset');
         if (preset === 'ta_btc') {
-          currentPayload = null; // Auto-fetch live market data for BTC
+          currentPayload = null;
           updatePayloadUI("⚡ دیتاسِت زنده امروز (بیت‌کوین - کندل‌ها و اندیکاتورها)");
           userInput.value = "بیت کوین رو تو تایم فریم یک روزه با کندل‌ها و اندیکاتورهای RSI و MACD تحلیل کن و سیگنال بده";
         } else if (preset === 'smart_money') {
-          currentPayload = null; // Auto-fetch live fundamental data
+          currentPayload = null;
           updatePayloadUI("⚡ دیتاسِت آن‌چین زنده امروز: جریان پول هوشمند");
           userInput.value = "روند جریان پول هوشمند بیت‌کوین (Smart Money Flow) در تاریخ امروز به چه صورت است؟";
         } else if (preset === 'miner_behavior') {
-          currentPayload = null; // Auto-fetch live miner behavior
+          currentPayload = null;
           updatePayloadUI("⚡ دیتاسِت آن‌چین زنده امروز: رفتار ماینرها");
           userInput.value = "ذخایر و رفتار ماینرهای بیت‌کوین را تحلیل کن.";
         }
@@ -479,7 +1033,7 @@
     });
 
     btnAttachData?.addEventListener('click', () => {
-      currentPayload = null; // Default to live auto-fetch
+      currentPayload = null;
       updatePayloadUI("⚡ دریافت خودکار آخرین داده‌های بازار و اندیکاتورهای امروز فعال شد");
     });
 
@@ -495,9 +1049,26 @@
       const text = userInput.value.trim();
       if (!text) return;
 
+      let activeSession = getActiveSession();
+      if (!activeSession) {
+        activeSession = createNewSession(generateTitleFromText(text));
+      } else if (!activeSession.messages || activeSession.messages.length === 0 || activeSession.title === 'گفتگوی جدید') {
+        activeSession.title = generateTitleFromText(text);
+      }
+
       if (welcomeCard) welcomeCard.style.display = 'none';
 
-      appendMessage('user', text);
+      // Record user message in active session
+      activeSession.messages.push({
+        role: 'user',
+        text: text,
+        timestamp: new Date().toISOString()
+      });
+      activeSession.updatedAt = new Date().toISOString();
+      saveSessionsToStorage();
+      renderHistoryList();
+
+      appendMessageToDOM('user', text);
       userInput.value = '';
 
       const loadingEl = appendLoading();
@@ -520,65 +1091,41 @@
           body: JSON.stringify(payload)
         });
         const data = await response.json();
-        loadingEl.remove();
+        if (loadingEl) loadingEl.remove();
 
-        if (data.answer) {
-          appendMessage('assistant', data.answer, data.price, data.thinking);
-        } else {
-          appendMessage('assistant', 'خطا در تولید پاسخ: ' + (data.error || 'خطای ناشناخته'));
-        }
+        let assistantText = data.answer || ('خطا در تولید پاسخ: ' + (data.error || 'خطای ناشناخته'));
+        let priceVal = data.price || 0;
+        let thinkingVal = data.thinking || '';
+
+        activeSession.messages.push({
+          role: 'assistant',
+          text: assistantText,
+          price: priceVal,
+          thinking: thinkingVal,
+          timestamp: new Date().toISOString()
+        });
+        activeSession.updatedAt = new Date().toISOString();
+        saveSessionsToStorage();
+        renderHistoryList();
+
+        appendMessageToDOM('assistant', assistantText, priceVal, thinkingVal);
       } catch (err) {
-        loadingEl.remove();
-        appendMessage('assistant', 'خطای ارتباط با سرور: ' + err.message);
+        if (loadingEl) loadingEl.remove();
+        let errMsg = 'خطای ارتباط با سرور: ' + err.message;
+
+        activeSession.messages.push({
+          role: 'assistant',
+          text: errMsg,
+          price: 0,
+          thinking: '',
+          timestamp: new Date().toISOString()
+        });
+        activeSession.updatedAt = new Date().toISOString();
+        saveSessionsToStorage();
+        renderHistoryList();
+
+        appendMessageToDOM('assistant', errMsg);
       }
     });
-
-    function appendMessage(role, text, price, thinking) {
-      const isPersian = /[\u0600-\u06FF]/.test(text);
-      const row = document.createElement('div');
-      row.className = `message-row ${role}`;
-
-      let thinkingHtml = '';
-      if (thinking) {
-        thinkingHtml = `
-          <details class="thinking-details" open>
-            <summary class="thinking-summary">
-              <span class="thinking-icon">🧠</span>
-              <span class="thinking-title">روند تفکر ایجنت (Thinking Process)</span>
-            </summary>
-            <div class="thinking-body">${thinking.replace(/\n/g, '<br/>')}</div>
-          </details>
-        `;
-      }
-
-      row.innerHTML = `
-        <div class="avatar glass-card">${role === 'user' ? '👤' : '🤖'}</div>
-        <div class="message-content glass-card ${isPersian ? 'rtl-text' : 'ltr-text'}">
-          <div class="message-header">
-            <span class="sender-name">${role === 'user' ? 'شما' : 'دستیار Agno AI'}</span>
-            ${price ? `<span class="price-badge">$${price.toFixed(6)}</span>` : ''}
-          </div>
-          ${thinkingHtml}
-          <div class="message-body">${text.replace(/\n/g, '<br/>')}</div>
-        </div>
-      `;
-      messagesContainer.appendChild(row);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function appendLoading() {
-      const row = document.createElement('div');
-      row.className = 'message-row assistant';
-      row.innerHTML = `
-        <div class="avatar glass-card">🤖</div>
-        <div class="message-content glass-card">
-          <div class="message-header"><span class="sender-name">در حال پردازش ایجنت Agno...</span></div>
-          <div class="message-body">در حال فراخوانی ابزارهای تحلیلی و بررسی داده‌ها...</div>
-        </div>
-      `;
-      messagesContainer.appendChild(row);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      return row;
-    }
   });
 </script>
