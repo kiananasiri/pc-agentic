@@ -1,0 +1,46 @@
+{
+  "market": "crypto",
+  "asset": {
+    "id": 1,
+    "name": "Bitcoin",
+    "symbol": "BTC"
+  },
+  "chain": {
+    "id": 1,
+    "name": "Bitcoin",
+    "symbol": "BTC"
+  },
+  "startDate": "2026-09-04T19:16:34.570199+00:00",
+  "endDate": "2026-09-04T19:16:34.570199+00:00",
+  "strategy": "Smart Money Flow & Market Metrics",
+  "data": {
+    "exchangeFlow": [
+      {
+        "timestamp": 1788462994570,
+        "inflowVolume": 1981301.61,
+        "outflowVolume": 2377561.93,
+        "netflow": -396260.32
+      },
+      {
+        "timestamp": 1788549394570,
+        "inflowVolume": 2060553.68,
+        "outflowVolume": 2575692.1,
+        "netflow": -515138.42
+      }
+    ],
+    "bullsAndBears": [
+      {
+        "timestamp": 1788549394570,
+        "bullCount": 42000,
+        "bearCount": 58000
+      }
+    ],
+    "largeHoldersNetflow": [
+      {
+        "timestamp": 1788549394570,
+        "largeHoldersNetflow": 792520.64,
+        "whaleSentiment": "Distribution"
+      }
+    ]
+  }
+}
