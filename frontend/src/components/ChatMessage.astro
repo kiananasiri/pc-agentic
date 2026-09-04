@@ -3,10 +3,11 @@ export interface Props {
   role: 'user' | 'assistant';
   content: string;
   price?: number;
+  thinking?: string;
   timestamp?: string;
 }
 
-const { role, content, price } = Astro.props;
+const { role, content, price, thinking } = Astro.props;
 
 // Persian language detector
 const isPersian = /[\u0600-\u06FF]/.test(content);
@@ -34,6 +35,16 @@ const isPersian = /[\u0600-\u06FF]/.test(content);
         <span class="price-badge">${price.toFixed(6)}</span>
       )}
     </div>
+
+    {thinking && (
+      <details class="thinking-details" open>
+        <summary class="thinking-summary">
+          <span class="thinking-icon">🧠</span>
+          <span class="thinking-title">روند تفکر ایجنت (Thinking Process)</span>
+        </summary>
+        <div class="thinking-body" set:html={thinking.replace(/\n/g, '<br/>')} />
+      </details>
+    )}
 
     <div class="message-body" set:html={content.replace(/\n/g, '<br/>')} />
   </div>
@@ -110,5 +121,33 @@ const isPersian = /[\u0600-\u06FF]/.test(content);
     font-size: 0.92rem;
     line-height: 1.6;
     color: var(--text-main);
+  }
+
+  .thinking-details {
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .thinking-summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #c084fc;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    user-select: none;
+  }
+
+  .thinking-body {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed rgba(168, 85, 247, 0.25);
+    color: #e2e8f0;
+    font-size: 0.78rem;
+    line-height: 1.5;
   }
 </style>

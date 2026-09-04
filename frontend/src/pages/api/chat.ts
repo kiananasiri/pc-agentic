@@ -56,7 +56,7 @@ result = chat(
     code=payload.get('code'),
     model=payload.get('model')
 )
-print(json.dumps(result))
+print(json.dumps(result, ensure_ascii=False))
 `;
 
     return new Promise((resolve) => {
@@ -64,21 +64,28 @@ print(json.dumps(result))
         if (error) {
           resolve(new Response(JSON.stringify({ error: stderr || error.message }), {
             status: 500,
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
           }));
           return;
         }
 
         try {
-          const parsed = JSON.parse(stdout.trim());
-          resolve(new Response(JSON.stringify(parsed), {
-            status: 200,
-            headers: { 'Content-Type': 'application/json' }
-          }));
+          const stdoutStr = stdout.trim();
+          // Extract JSON payload from stdout even if log messages precede it
+          const jsonMatch = stdoutStr.match(/\{[\s\S]*\}/);
+          if (jsonMatch) {
+            const parsed = JSON.parse(jsonMatch[0]);
+            resolve(new Response(JSON.stringify(parsed), {
+              status: 200,
+              headers: { 'Content-Type': 'application/json; charset=utf-8' }
+            }));
+            return;
+          }
+          throw new Error('No JSON object found in output');
         } catch (parseErr) {
           resolve(new Response(JSON.stringify({ answer: stdout.trim(), price: 0 }), {
             status: 200,
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json; charset=utf-8' }
           }));
         }
       });
