@@ -107,12 +107,56 @@ code, pre {
 /* Text direction helpers */
 .rtl-text {
   direction: rtl;
-  text-align: right;
 }
 
 .ltr-text {
   direction: ltr;
-  text-align: left;
+}
+
+/* GLOBAL RULE: Code blocks & pre elements MUST ALWAYS BE LTR */
+pre,
+code,
+pre code,
+.rtl-text pre,
+.rtl-text code,
+.rtl-text pre code,
+.ltr-text pre,
+.ltr-text code {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: isolate !important;
+}
+
+pre {
+  background: #090d16 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-radius: 10px !important;
+  padding: 1rem 1.25rem !important;
+  margin: 0.85rem 0 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4) !important;
+  overflow-x: auto !important;
+}
+
+pre code {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  color: #38bdf8 !important;
+  font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace !important;
+  font-size: 0.9em !important;
+  line-height: 1.65 !important;
+  white-space: pre !important;
+  display: block !important;
+}
+
+code:not(pre code) {
+  background: #0f172a !important;
+  color: #38bdf8 !important;
+  padding: 0.15rem 0.45rem !important;
+  border-radius: 4px !important;
+  font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace !important;
+  font-size: 0.88em !important;
+  display: inline-block !important;
 }
 
 /* Pulse animation */
