@@ -1,0 +1,86 @@
+.env
+__pycache__
+*.ipynb
+*.json
+*tempCodeRunnerFile.py
+.tempCodeRunnerFile.py
+tempCodeRunnerFile.py/
+.vscode/
+.idea/
+.env
+.env.*
+env
+.png 
+*.png
+.csv
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environment directories
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Ignore environment variable files
+.env
+.env.*
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb 
+# Ignore log files
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore compiled code
+*.o
+*.so
+*.a
+*.out
+
+# Ignore coverage reports
+coverage/
+*.cover
+*.coverage
+*.cov
+*.gcov
+
+# Ignore distribution/build files
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Ignore test results
+*.pytest_cache/
+.tox/
+.nox/
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+*.sublime-project
+*.sublime-workspacemyenv/
+.tempCodeRunnerFile.py
+tempCodeRunnerFile.py/
+
+#ignore my enviormnet
+myenv/
+*.csv
