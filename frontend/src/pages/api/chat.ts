@@ -7,7 +7,7 @@ export const prerender = false;
 export const POST: APIRoute = async ({ request }) => {
   try {
     const body = await request.json();
-    const { question, analysis, analysis_fundamental, code = false, model = 'gpt-4o-mini' } = body;
+    const { question, analysis, analysis_fundamental, selected_indicators, code = false, model = 'gpt-4o-mini' } = body;
 
     // Try proxying to Django backend first if available
     try {
@@ -34,6 +34,7 @@ export const POST: APIRoute = async ({ request }) => {
       user_input: question,
       analysis: analysis || null,
       fundamental: analysis_fundamental || null,
+      selected_indicators: selected_indicators || null,
       code: Boolean(code),
       model: model || 'gpt-4o-mini'
     });
@@ -53,6 +54,7 @@ result = chat(
     user_input=payload.get('user_input'),
     analysis=payload.get('analysis'),
     fundamental=payload.get('fundamental'),
+    selected_indicators=payload.get('selected_indicators'),
     code=payload.get('code'),
     model=payload.get('model')
 )
